@@ -29,6 +29,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
+Route::post('/bills/{bill}/participants', [BillParticipantController::class, 'store'])
+    ->name('bills.participants.store');
+
 // Email Verification Routes
 Route::get('/email/verify', [VerificationController::class, 'show'])
     ->middleware('auth')
